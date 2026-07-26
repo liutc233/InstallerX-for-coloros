@@ -1,5 +1,7 @@
 .build/
 dist/
+artifacts/
+upstream/
 *.apk
 *.zip
 *.idsig

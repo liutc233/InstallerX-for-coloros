@@ -8,10 +8,10 @@ $ModuleSource = Join-Path $ProjectRoot 'module'
 $WorkRoot = Join-Path $ProjectRoot '.build'
 $Stage = Join-Path $WorkRoot 'module'
 $Dist = Join-Path $ProjectRoot 'dist'
-$ApkName = 'InstallerX-Revived-offline-26.05.01.apk'
-$ApkUrl = 'https://github.com/wxxsfxyzm/InstallerX-Revived/releases/download/26.05.01/InstallerX-Revived-offline-26.05.01.apk'
-$ExpectedApkSha256 = 'df5c2e5320d168ab0aa8d230ad85529e2368c1802f08d959285ce9fe314056de'
-$ZipName = 'InstallerX-for-coloros-v2.0.4.zip'
+$ApkName = 'InstallerX-RootDefault-offline.apk'
+$ApkUrl = 'https://github.com/liutc233/InstallerX-Revived-RootDefault/releases/download/root-default-20260727/InstallerX-RootDefault-offline.apk'
+$ExpectedApkSha256 = '63b7e1cfb019c52f1ab1f183422f1f8141adb1aef32559da5dc3727713bbc2cc'
+$ZipName = 'InstallerX-for-coloros-v2.1.0.zip'
 
 if (-not (Test-Path -LiteralPath $ModuleSource)) {
     throw "Module source directory not found: $ModuleSource"

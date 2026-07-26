@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.0
+
+- Bundles the open-source RootDefault InstallerX build, whose first-run
+  authorizer is Root instead of Shizuku.
+- Permanently freezes the ColorOS package installer while the module is active.
+- Changes Action to open InstallerX only; it no longer changes the freeze state.
+- Enables InstallerX's `REQUEST_INSTALL_PACKAGES` AppOp during installation and
+  at boot.
+
 ## 2.0.4
 
 - Added Action state toggling: freeze on first run and restore on the next.
