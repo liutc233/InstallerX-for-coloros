@@ -37,7 +37,7 @@ verifies its SHA-256, and creates a flashable ZIP in `dist`.
 
 1. Build the module or download a release ZIP.
 2. Flash the ZIP with KernelSU.
-3. Reboot and wait about 15 seconds after the home screen appears.
+3. Reboot the phone, open KernelSU, and then Action.
 4. Configure InstallerX Revived to use Root authorization.
 
 ## License and third-party software
