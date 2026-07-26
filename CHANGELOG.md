@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.1
+
+- Grants InstallerX Root access through KernelSU's `ksud su -p` profile command
+  during flashing, boot, and Action.
+- Uses the explicit InstallerX Settings activity and a delayed foreground retry
+  so Action opens it reliably on ColorOS.
+
 ## 2.1.0
 
 - Bundles the open-source RootDefault InstallerX build, whose first-run

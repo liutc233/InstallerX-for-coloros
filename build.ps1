@@ -11,7 +11,7 @@ $Dist = Join-Path $ProjectRoot 'dist'
 $ApkName = 'InstallerX-RootDefault-offline.apk'
 $ApkUrl = 'https://github.com/liutc233/InstallerX-Revived-RootDefault/releases/download/root-default-20260727/InstallerX-RootDefault-offline.apk'
 $ExpectedApkSha256 = '63b7e1cfb019c52f1ab1f183422f1f8141adb1aef32559da5dc3727713bbc2cc'
-$ZipName = 'InstallerX-for-coloros-v2.1.0.zip'
+$ZipName = 'InstallerX-for-coloros-v2.1.1.zip'
 
 if (-not (Test-Path -LiteralPath $ModuleSource)) {
     throw "Module source directory not found: $ModuleSource"

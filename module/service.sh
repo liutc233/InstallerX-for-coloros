@@ -25,6 +25,13 @@ allow_install_requests() {
   cmd appops set --user 0 "$INSTALLERX_PKG" REQUEST_INSTALL_PACKAGES allow >/dev/null 2>&1 || true
 }
 
+grant_kernelsu_root() {
+  KSUD="$(command -v ksud 2>/dev/null)"
+  [ -n "$KSUD" ] || KSUD="/data/adb/ksud"
+  [ -x "$KSUD" ] || return 1
+  "$KSUD" su -p "$INSTALLERX_PKG" true >/dev/null 2>&1
+}
+
 wait_for_boot || exit 0
 sleep 8
 
@@ -34,6 +41,7 @@ ensure_installerx || {
 }
 
 allow_install_requests
+grant_kernelsu_root || log -t InstallerXRootDefault "KernelSU Root profile could not be updated" 2>/dev/null
 pm uninstall --user 0 "$OLD_LOS_PKG" >/dev/null 2>&1
 pm disable-user --user 0 "$COLOROS_PKG" >/dev/null 2>&1
 am force-stop --user 0 "$COLOROS_PKG" >/dev/null 2>&1

@@ -12,7 +12,8 @@ mounts or replaces `/system` or `/system_ext`.
   certificate differs; this clears existing InstallerX settings.
 - Enables the Android `REQUEST_INSTALL_PACKAGES` AppOp for InstallerX.
 - Always freezes the ColorOS package installer for user 0 after boot.
-- Action only opens InstallerX; it never changes the freeze state.
+- Action grants InstallerX KernelSU Root access when supported, then opens its
+  explicit Settings activity. It never changes the freeze state.
 - Removing the module restores the ColorOS package installer and leaves the
   custom InstallerX app installed.
 
@@ -21,9 +22,10 @@ mounts or replaces `/system` or `/system_ext`.
 The bundled InstallerX source has one deliberate upstream-compatible patch:
 its first-run authorizer defaults to `Root` instead of `Shizuku`.
 
-KernelSU's first Root authorization prompt still requires an explicit user
-approval. Select **Allow forever** when InstallerX first asks for Root; a
-module must not bypass KernelSU's per-app authorization boundary.
+The module uses KernelSU's `ksud su -p` profile command to grant InstallerX
+Root access during flashing, boot, and Action. If the installed KernelSU build
+does not support that command, Action reports the fallback and InstallerX must
+be enabled manually in KernelSU's Superuser page.
 
 ## Build
 
@@ -41,7 +43,8 @@ SHA-256, and creates a flashable ZIP in `dist`.
 
 1. Flash the ZIP with KernelSU and reboot.
 2. Tap **Action** in KernelSU to open InstallerX.
-3. Approve InstallerX's one-time KernelSU Root request.
+3. Action grants InstallerX Root automatically; if it reports a profile
+   failure, enable InstallerX once in KernelSU's Superuser page.
 4. Open an APK; InstallerX is selected because the ColorOS installer remains
    frozen for user 0.
 
